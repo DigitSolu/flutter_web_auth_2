@@ -18,10 +18,11 @@ class FlutterWebAuth2Plugin(private var context: Context? = null, private var ch
   companion object {
     val callbacks = mutableMapOf<String, Result>()
 
+    @Suppress("DEPRECATION")
     @JvmStatic
     fun registerWith(registrar: PluginRegistry.Registrar) {
         val plugin = FlutterWebAuth2Plugin()
-        plugin.initInstance(registrar.messenger(), registrar.context())
+        plugin.initInstance(registrar.messenger(), registrar.activeContext())
     }
 
   }
